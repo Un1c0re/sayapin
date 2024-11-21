@@ -1,52 +1,30 @@
-import {FileTextIcon, HeartPulseIcon, Hospital, StickyNoteIcon} from "lucide-react";
 import {BentoCard} from "@/components/ui/bento-grid";
-import { faUserNurse } from '@fortawesome/free-solid-svg-icons';
+import {ProjetcFeatures} from "@/utils/ProjetcFeatures";
+import IconCloud from "@/components/ui/icon-cloud";
+import {stackIcons} from "@/utils/StackIcons";
 
 const Projects = () => {
-    // const features = [
-    //     {
-    //         Icon: FileTextIcon,
-    //         name: "CancerNEO",
-    //         description: "Мобильный ассистент для пациентов с НЭО",
-    //         href: "#",
-    //         cta: "Посмотреть",
-    //         background: (
-    //             <div className="bg-blue-400">LSKLSKDLKS</div>
-    //         ),
-    //     }
-    // ]
-
     return (
-        <div className="flex flex-col items-start justify-center gap-2 w-full overflow-clip">
-            <h2 className="font-semibold">Портфолио</h2>
-            <div className="flex items-center justify-center gap-2 w-full">
-                <BentoCard
-                    name="CancerNEO"
-                    className="h-[12rem] w-[18rem]"
-                    background={""}
-                    Icon={HeartPulseIcon}
-                    description="Мобильный ассистент для пациентов с НЭО"
-                    href="#"
-                    cta="Посмотреть"
-                />
-                <BentoCard
-                    name="digiNotes"
-                    className="h-[12rem] w-[18rem]"
-                    background={""}
-                    Icon={StickyNoteIcon}
-                    description="Простая доска заметок на Vue"
-                    href="#"
-                    cta="Посмотреть"
-                />
-                <BentoCard
-                    name="CancerNEO"
-                    className="h-[12rem] w-[18rem]"
-                    background={""}
-                    Icon={FileTextIcon}
-                    description="Мобильный ассистент для пациентов с НЭО"
-                    href="#"
-                    cta="Посмотреть"
-                />
+        <div className="w-1/4 h-full flex flex-col p-2 gap-2">
+            <div className="flex flex-col gap-1 items-center justify-center">
+                <h2 className="font-semibold self-start">Стек технологий</h2>
+                <IconCloud iconSlugs={stackIcons}/>
+            </div>
+            <div className="flex flex-col gap-1 items-center justify-center">
+                <h2 className="font-semibold self-start">Проекты</h2>
+                <div className="flex flex-wrap gap-2">
+                    {ProjetcFeatures.map((feature) => (
+                        <BentoCard
+                            name={feature.name}
+                            className="h-[10rem] w-[10rem]"
+                            background={""}
+                            Icon={feature.icon}
+                            description={""}
+                            href={feature.href}
+                            cta="Посмотреть"
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     )
