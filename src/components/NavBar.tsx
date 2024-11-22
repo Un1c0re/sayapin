@@ -5,7 +5,7 @@ import {buttonVariants} from "@/components/ui/button";
 import {Separator} from "@/components/ui/separator";
 import {Dock, DockIcon} from "@/components/ui/dock";
 import {ModeToggle} from "@/components/mode-toggle";
-import {SiGithub, SiGmail, SiTelegram, SiVk} from "@icons-pack/react-simple-icons";
+import {SiGithub, SiTelegram, SiVk} from "@icons-pack/react-simple-icons";
 
 
 const DATA = {
@@ -13,23 +13,18 @@ const DATA = {
         social: {
             GitHub: {
                 name: "GitHub",
-                url: "#",
+                url: "https://github.com/Un1c0re",
                 icon: SiGithub,
             },
             LinkedIn: {
-                name: "LinkedIn",
-                url: "#",
+                name: "Telegram",
+                url: "https://t.me/plavlusha",
                 icon: SiTelegram,
             },
             X: {
-                name: "X",
-                url: "#",
+                name: "Vk",
+                url: "https://vk.com/plavlusha",
                 icon: SiVk,
-            },
-            email: {
-                name: "Send Email",
-                url: "#",
-                icon: SiGmail,
             },
         },
     },

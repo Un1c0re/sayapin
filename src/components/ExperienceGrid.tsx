@@ -55,8 +55,8 @@ const ExperienceGrid = ({isWork}: { isWork: boolean }) => {
 
             </div>
             {
-                data.map((exp) => (
-                    <div className="grid grid-cols-2 gap-1">
+                data.map((exp, index) => (
+                    <div className="grid grid-cols-2 gap-1" key={index}>
                         <div>
                             <p className="text-[11px] text-gray-500">{firstCellName}</p>
                             <p>{exp.place}</p>
