@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { useTheme } from "next-themes";
+import {MouseEventHandler, useEffect, useMemo, useState} from "react";
+import { useTheme } from "@/components/theme-provider";
 import {
   Cloud,
   fetchSimpleIcons,
@@ -10,7 +10,7 @@ import {
   SimpleIcon,
 } from "react-icon-cloud";
 
-export const cloudProps: Omit<ICloud, "children"> = {
+const cloudProps: Omit<ICloud, "children"> = {
   containerProps: {
     style: {
       display: "flex",
@@ -47,12 +47,12 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
     bgHex,
     fallbackHex,
     minContrastRatio,
-    size: 42,
+    size: 72,
     aProps: {
       href: undefined,
       target: undefined,
       rel: undefined,
-      onClick: (e: any) => e.preventDefault(),
+      onClick: (event) => event.preventDefault(),
     },
   });
 };
@@ -82,7 +82,7 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   return (
     // @ts-ignore
     <Cloud {...cloudProps}>
-      <>{renderedIcons}</>
+      {renderedIcons || <p>Loading icons...</p>}
     </Cloud>
   );
 }
