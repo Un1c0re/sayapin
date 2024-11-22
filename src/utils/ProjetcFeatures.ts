@@ -17,7 +17,7 @@ export const ProjetcFeatures = [
         name: "Dude clicker",
         description: "Кроссплатформенный кликер на Flutter",
         icon: HandIcon,
-        href: "https://github.com/Un1c0re/diginotes",
+        href: "https://github.com/Un1c0re/ctf_clicker.git",
     },
     {
         name: "IT-Югра",
