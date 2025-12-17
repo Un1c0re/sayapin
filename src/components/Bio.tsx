@@ -1,22 +1,19 @@
-import ExperienceGrid from "@/components/ExperienceGrid";
+import React from "react";
 
-const Bio = () => {
+type BioProps = React.HTMLAttributes<HTMLDivElement>
+
+const Bio = ({className, ...props}: BioProps) => {
     return (
-        <div className="w-full sm:w-1/2 lg:w-2/4 h-full flex flex-col p-2 gap-5">
-            <div className="flex flex-col gap-2">
+        <div {...props} className={`${className ?? ""} grid gap-3 grid-rows-[repeat(4,_min-content)]`}>
+            <div className="space-y-2">
                 <h2 className="font-semibold">Обо мне</h2>
-                <p className="whitespace-break-spaces text-justify">
-                    Fullstack-разработчик, специализируюсь на разработке мобильных и веб приложений.
-                    Основной стек - Flutter, Vue3, React, .NET.
-                    так же имею опыт работы с Laravel, java.
-                    Сейчас работаю в ООО "МедИнфоЦентр".
+                <p className="whitespace-break-spaces text-justify max-w-prose">
+                    Fullstack-разработчик, специализируюсь на разработке веб приложений. В свободное время изучаю
+                    разработку мобильных приложений.
+                    <br/>
+                    Помимо программирования, занимаюсь концертной и студийной звукорежиссурой, написанием собственных
+                    музыкальных произведений.
                 </p>
-            </div>
-            <div className="flex flex-col gap-2">
-                <ExperienceGrid isWork={false}/>
-            </div>
-            <div className="flex flex-col gap-2">
-                <ExperienceGrid isWork={true}/>
             </div>
         </div>
     );

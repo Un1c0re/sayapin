@@ -6,7 +6,7 @@ export const workExperiences = [
         startDate: new Date("2024.06.13"),
         endDate: null,
         job: "Fullstack-разработчик",
-        stack: ".Net, Vue 2, 3",
+        stack: "Asp.Net, NHibernate, Vue 2, 3, Oracle Database",
         isCurrentWorkPlace: true,
     }),
 ]

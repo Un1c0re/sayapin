@@ -33,7 +33,7 @@ const ExperienceGrid = ({isWork}: { isWork: boolean }) => {
         );
 
     return (
-        <>
+        <div className="space-y-1">
             <div className="flex gap-2">
                 <h2 className="font-semibold">{isWork ? "Опыт работы" : "Образование"}</h2>
                 {isWork &&
@@ -52,7 +52,6 @@ const ExperienceGrid = ({isWork}: { isWork: boolean }) => {
                             ])}`}
                     </p>
                 }
-
             </div>
             {
                 data.map((exp, index) => (
@@ -106,7 +105,7 @@ const ExperienceGrid = ({isWork}: { isWork: boolean }) => {
                     </div>
                 ))
             }
-        </>
+        </div>
     );
 }
 

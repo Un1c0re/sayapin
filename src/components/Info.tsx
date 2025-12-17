@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
-import GitHubCalendar, {Activity} from "react-github-calendar";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLocationDot} from '@fortawesome/free-solid-svg-icons';
-import NavBar from "@/components/NavBar";
+import {SiGithub, SiTelegram, SiLeetcode, SiLocal, SiGeode} from "@icons-pack/react-simple-icons";
 
-const Info = () => {
+type InfoProps = React.HTMLAttributes<HTMLDivElement>
+
+const Info = ({className, ...props}: InfoProps) => {
     const [time, setTime] = useState('');
 
     useEffect(() => {
@@ -23,53 +24,36 @@ const Info = () => {
         return () => clearInterval(intervalId);
     }, []);
 
-    const selectLastHalfYear = (contributions: Activity[]) => {
-        const currentYear = new Date().getFullYear();
-        const currentMonth = new Date().getMonth();
-        const shownMonths = 6;
-
-        return contributions.filter((activity: { date: string | number | Date; }) => {
-            const date = new Date(activity.date);
-            const monthOfDay = date.getMonth();
-
-            return (
-                date.getFullYear() === currentYear &&
-                monthOfDay > currentMonth - shownMonths &&
-                monthOfDay <= currentMonth
-            );
-        });
-    };
     return (
-        <div className="h-full w-full sm:w-1/2 lg:w-1/4 flex flex-col gap-5 p-2">
-            <div className="flex sm:flex-no-wrap gap-3 lg:flex-col">
-                <Avatar className="h-[10rem] w-[10rem]">
-                    <AvatarImage
-                        src="https://gravatar.com/userimage/254577929/f636e038385165e1c6209c2bdd948b2e.jpeg?size=256"
-                        alt="@shadcn"/>
-                    <AvatarFallback>Аватар</AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col gap-3">
-                    <div>
-                        <h1>Павел Саяпин</h1>
-                        <h2 className="text-gray-500">Fullstack-разработчик</h2>
-                    </div>
-                    <div className="flex flex-col items-start text-md gap-0.5">
-                        <p><FontAwesomeIcon icon={faLocationDot}/> Сургут, Россия</p>
-                        <p>{time} (UTC + 05:00)</p>
-                    </div>
-                </div>
+        <div {...props} className={`${className ?? ""} grid gap-3 text-center md:text-left`}>
+            <Avatar className="h-32 w-32 md:h-[10rem] md:w-[10rem] lg:justify-self-start justify-self-center">
+                <AvatarImage
+                    src="https://gravatar.com/userimage/254577929/f636e038385165e1c6209c2bdd948b2e.jpeg?size=256"
+                    alt="@shadcn"/>
+                <AvatarFallback>Аватар</AvatarFallback>
+            </Avatar>
+
+            <div className="space-y-1">
+                <h1>Павел Саяпин</h1>
+                <h2 className="text-gray-500">Fullstack Web Developer</h2>
             </div>
-            <div>
-                <GitHubCalendar
-                    transformData={selectLastHalfYear}
-                    hideColorLegend
-                    hideTotalCount
-                    colorScheme="light"
-                    blockSize={9}
-                    username="Un1c0re"
-                />
+
+            <div className="space-y-1">
+                <p><FontAwesomeIcon icon={faLocationDot}/>Сургут, Россия</p>
+                <p>{time} <span className="text-gray-500">(UTC + 05:00)</span></p>
             </div>
-            <NavBar/>
+
+            <div className="flex gap-4 justify-center md:justify-start">
+                <a href="https://t.me/plavlusha">
+                    <SiTelegram className="size-6"/>
+                </a>
+                <a href="https://github.com/Un1c0re">
+                    <SiGithub className="size-6"/>
+                </a>
+                <a href="https://leetcode.com/u/Un1c0re/">
+                    <SiLeetcode className="size-6"/>
+                </a>
+            </div>
         </div>
     )
 }

@@ -21,11 +21,6 @@ const DATA = {
                 url: "https://t.me/plavlusha",
                 icon: SiTelegram,
             },
-            X: {
-                name: "Vk",
-                url: "https://vk.com/plavlusha",
-                icon: SiVk,
-            },
         },
     },
 };
